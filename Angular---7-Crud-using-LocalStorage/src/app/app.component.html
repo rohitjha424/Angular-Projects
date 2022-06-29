@@ -1,0 +1,28 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<div class="container">
+
+    <nav>
+        <ul>
+          <li><a routerLink="/employee-list">Home </a></li>
+          <li><a routerLink="/employee-create">Register</a></li>
+          <li><a routerLink="/employee-list">Show Data </a></li>
+          <li>
+        
+            <a href="#">
+              <i class="fa fa-bars"></i>
+            </a>
+          </li>
+          <input type="search" />
+        </ul>
+      </nav>
+<nav class="navbar navbar-dark bg-dark">
+    <!-- <a class="navbar-brand mybrand" routerLink='/employee-list'> <i class="fa fa-group"></i></a> -->
+    <h1 class="navbar-brand align-middle">Customer Register Book</h1>
+    <!-- <a class="btn btn-success btn-sm" routerLink='/employee-create'> <i class="fa fa-plus"></i> Add Customer</a> -->
+</nav>
+
+<router-outlet></router-outlet>
+
+</div>
