@@ -1,0 +1,92 @@
+<nav class="navbar navbar-light bg-primary">
+    <div class="container-fluid">
+        <h1 style="color:aliceblue;">Employee Management</h1>
+        <div class="d-flex">
+            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Employee</button>
+        </div>
+    </div>
+</nav>
+<h1 class="text-center mb-3">Employee-Data</h1>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Salary</th>
+        <th scope="col">Age</th>
+        <th  scope="col">Gender</th>
+        <th scope="col">Action</th>
+
+      </tr>
+   </thead>
+   <tbody>
+      <tr *ngFor="let employee of employees">
+         <td>{{employee.name}}</td>
+         <td>{{employee.salary}}</td>
+         <td>{{employee.age}}</td>
+         <td>{{employee.gender}}</td>
+         <td>
+             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+             (click)="onEdit(row)">Update</button>
+             <button class="btn btn-danger" (click)="onClickDelete(employee)">Delete</button>
+         </td>
+      </tr>
+    </tbody>
+
+</table>
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="myForm">
+                <div class="mb-3">
+                  <label for="name" class="form-label">Name</label>
+                  <input type="text" formControlName="name" id="name" 
+                  [(ngModel)]="name"  class="form-control">
+                  
+                </div>
+                <div class="mb-3">
+                    <label for="salary" class="form-label">Salary</label>
+                    <input type="number" formControlName="salary" id="salary" 
+                    [(ngModel)]="salary" class="form-control">
+                    
+                  </div>
+                  <div class="mb-3">
+                    <label for="age" class="form-label">Age</label>
+                    <input type="number" formControlName="age" id="age" 
+                    [(ngModel)]="age" class="form-control">
+                    
+                  </div>
+                  <div class="mb-3">
+                    <label for="gender" class="form-label">Gender</label>
+                    <select class="form-select" [(ngModel)]="gender" formControlName="gender" >
+                        <option selected value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        
+                      </select>
+                    
+                  </div>
+
+                  
+               
+                
+              </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" (click)="addEmployee()">Add</button>
+            <button type="button" class="btn btn-primary" (click)="updateEmployee()">Update</button>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+  
+
